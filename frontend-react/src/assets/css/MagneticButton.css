@@ -1,0 +1,15 @@
+.magnetic-btn {
+  padding: 12px 28px;
+  border: 1px solid #38bdf8;
+  background: transparent;
+  color: #38bdf8;
+  border-radius: 30px;
+  cursor: none; /* important for custom cursor */
+
+  transition: 0.3s;
+}
+
+.magnetic-btn:hover {
+  background: #38bdf8;
+  color: #0f172a;
+}
