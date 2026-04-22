@@ -49,9 +49,7 @@ const Services = () => {
       <div className="container">
 
         <h2 className="text-center mb-5">My Services</h2>
-        <p className="services-note">
-          I am open to freelance and full-time opportunities. Let's build something amazing together.
-        </p>
+        
 
         <div className="services-wrapper">
 
@@ -83,6 +81,7 @@ const Services = () => {
         </div>
 
       </div>
+      <p className="services-note" data-aos="fade-left"><em>I am open to freelance and full-time opportunities. Let's build something amazing together.</em></p>
     </section>
   );
 };

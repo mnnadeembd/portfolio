@@ -8,7 +8,7 @@ const Projects = () => {
 
         <div className="row g-4 justify-content-center">
 
-          {/* Project Card */}
+          {/* Project Card 1*/}
           <div className="col-md-6 col-lg-4" data-aos="zoom-in">
             <div className="project-card p-4 h-100">
               <h5 className="project-title">Personal Portfolio Website</h5>
@@ -19,7 +19,7 @@ const Projects = () => {
 
               <div className="mt-3">
                 <a href="http://nuruzzaman.intelsofts.com/" target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">
-                  <i className="fas fa-globe"></i> Live Demo
+                  <i className="fas fa-globe"></i> Live
                 </a>
 
                 <a href="https://github.com/mnnadeembd/portfolio" target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-light">
@@ -40,7 +40,7 @@ const Projects = () => {
 
               <div className="mt-3">
                 <a href="http://nuruzzaman.intelsofts.com/html/" target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">
-                  <i className="fas fa-globe"></i> Live Demo
+                  <i className="fas fa-globe"></i> Live
                 </a>
 
                 <a href="#" className="btn btn-sm btn-outline-light">
@@ -61,7 +61,7 @@ const Projects = () => {
 
               <div className="mt-3">
                 <a href="http://nuruzzaman.intelsofts.com/php/" target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">
-                  <i className="fas fa-globe"></i> Live Demo
+                  <i className="fas fa-globe"></i> Live
                 </a>
 
                 <a href="#" className="btn btn-sm btn-outline-light">
@@ -82,7 +82,7 @@ const Projects = () => {
 
               <div className="mt-3">
                 <a href="http://nuruzzaman.intelsofts.com/react" target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">
-                  <i className="fas fa-globe"></i> Live Demo
+                  <i className="fas fa-globe"></i> Live
                 </a>
 
                 <a href="#" className="btn btn-sm btn-outline-light">
@@ -103,10 +103,10 @@ const Projects = () => {
 
               <div className="mt-3">
                 <a href="http://nuruzzaman.intelsofts.com/hr" target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">
-                  <i className="fas fa-globe"></i> Live Demo
+                  <i className="fas fa-globe"></i> Live
                 </a>
 
-                <a href="#" className="btn btn-sm btn-outline-light">
+                <a href="https://github.com/mnnadeembd/HR_Management" className="btn btn-sm btn-outline-light">
                   <i className="fab fa-github"></i> Code
                 </a>
               </div>
@@ -123,11 +123,32 @@ const Projects = () => {
               </p>
 
               <div className="mt-3">
-                <a href="http://nuruzzaman.intelsofts.com/hr" target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">
-                  <i className="fas fa-globe"></i> Live Demo
+                <a href="http://nuruzzaman.intelsofts.com/vue" target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">
+                  <i className="fas fa-globe"></i> Live
                 </a>
 
-                <a href="#" className="btn btn-sm btn-outline-light">
+                <a href="https://github.com/mnnadeembd/VueERP/tree/main/vue" className="btn btn-sm btn-outline-light">
+                  <i className="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Project 7 */}
+          <div className="col-md-6 col-lg-4" data-aos="zoom-in">
+            <div className="project-card p-4 h-100">
+              <h5 className="project-title">Vue.js Application</h5>
+
+              <p className="project-desc">
+                SPA built using Vue.js with fast and dynamic UI experience.
+              </p>
+
+              <div className="mt-3">
+                <a href="http://nuruzzaman.intelsofts.com/vue" target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">
+                  <i className="fas fa-globe"></i> Live
+                </a>
+
+                <a href="https://github.com/mnnadeembd/VueERP/tree/main/vue" className="btn btn-sm btn-outline-light">
                   <i className="fab fa-github"></i> Code
                 </a>
               </div>

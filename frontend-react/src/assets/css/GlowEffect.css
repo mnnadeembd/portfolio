@@ -14,8 +14,8 @@ body {
 /* Inner Dot */
 .cursor-dot {
   position: fixed;
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -24,9 +24,9 @@ body {
 /* Outer Ring */
 .cursor-ring {
   position: fixed;
-  width: 32px;
-  height: 32px;
-  border: 2px solid #38bdf8;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #38bdf8;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;

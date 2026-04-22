@@ -48,12 +48,9 @@ html {
   position: absolute;
   left: 0;
   bottom: -4px;
-
   width: 0%;
   height: 2px;
-
   background: linear-gradient(90deg, #38bdf8, #6366f1);
-
   transition: width 0.3s ease;
   border-radius: 10px;
 }
@@ -85,9 +82,7 @@ html {
     align-items: center;
     position: relative;
     text-align: center;
-
     z-index: 1;
-
     flex-direction: column;
     justify-content: center;
 
@@ -98,8 +93,6 @@ html {
 .hero-content h1 {
     font-size: 60px;
     font-weight: 700;
-
-
 }
 
 .hero-content p {
@@ -159,14 +152,12 @@ html {
 .about-section {
     min-height: 100vh;
     display: flex;
-    align-items: center;
-
-    background: linear-gradient(-45deg, #0a0a0a, #111827, #0f172a);
-    background-size: 300% 300%;
-    animation: gradient 8s ease infinite;
-
+    align-items: center;    
     padding-top: 80px;   
     padding-bottom: 80px;
+    background: #0d1525;;
+    background-size: 300% 300%;
+    animation: gradient 8s ease infinite;
 }
 
 .about-section h2 {
@@ -180,7 +171,7 @@ html {
     backdrop-filter: blur(12px);
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .about-card:hover {
@@ -195,6 +186,7 @@ html {
     object-fit: cover;
     border: 4px solid #38bdf8;
 }
+
 
 /* Table Fix */
 .table-dark {
@@ -230,14 +222,14 @@ html {
     margin-bottom: 50px;
 }
 
-/* GRID */
+/* Grid */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
 }
 
-/* CARD */
+/* Card */
 .skill-card {
     display: flex;
     flex-direction: column;
@@ -255,7 +247,7 @@ html {
     box-shadow: 0 12px 25px rgba(56, 189, 248, 0.12);
 }
 
-/* CIRCLE */
+/* Circle */
 .circle {
     position: relative;
     width: 120px;
@@ -267,52 +259,49 @@ html {
     transform: rotate(-90deg);
 }
 
-/* BACKGROUND */
+/* Background */
 .bg {
     fill: none;
     stroke: #1e293b;
     stroke-width: 10;
 }
 
-/* PROGRESS */
+/* Progress */
 .progress {
     fill: none;
     stroke-width: 10;
     stroke-linecap: round;
-
     stroke-dasharray: 326;
     stroke-dashoffset: 326;
-
     transition: stroke-dashoffset 1.5s ease;
 }
 
-/* CENTER CONTENT */
+/* Center Content */
 .circle-content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4px;
 }
 
-/* ICON */
+/* Icon */
 .skill-icon {
     font-size: 20px;
     color: #e2e8f0;
 }
 
-/* PERCENT */
+/* Percent */
 .number {
     font-size: 14px;
     font-weight: 600;
     color: #e2e8f0;
 }
 
-/* NAME */
+/* Name */
 .skill-name {
     margin-top: 12px;
     color: #cbd5e1;
@@ -323,7 +312,7 @@ html {
     color: #38bdf8;
 }
 
-/* TABS */
+/* Tabs */
 .tabs {
     display: flex;
     justify-content: center;
@@ -359,21 +348,16 @@ html {
 
 
 .project-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
 
-    position: relative; /* 🔥 important fix */
-
-    padding: 100px 0;
-
-    background: radial-gradient(circle at top left, #0f172a, #020617 60%),
-                radial-gradient(circle at bottom right, #1e293b, #0a0a0a);
-
-    overflow: hidden;
+  background: #0d1525;
 }
 
-/* 🔥 Floating glow background blobs */
 .project-section::before,
 .project-section::after {
     content: "";
@@ -386,77 +370,73 @@ html {
     z-index: 0;
 }
 
+
+
 .project-section::before {
-    background: #38bdf8;
-    top: -100px;
-    left: -120px;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.2;
+  pointer-events: none;
 }
 
-.project-section::after {
-    background: #6366f1;
-    bottom: -120px;
-    right: -120px;
-}
 
-/* container must be above bg */
+
+/* Container must be above bg */
 .project-section .container {
     position: relative;
     z-index: 2;
 }
 
-/* TITLE */
+/* Title */
 .project-section h2 {
     color: #e2e8f0;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
 
-/* CARD */
+/* Card */
 .project-card {
     background: rgba(30, 41, 59, 0.65);
     backdrop-filter: blur(12px);
-
     color: white;
-
     border-radius: 14px;
     border: 1px solid rgba(56, 189, 248, 0.12);
-
     transition: all 0.3s ease;
-
     position: relative;
     z-index: 2;
 }
 
-/* hover */
+/* Hover */
 .project-card:hover {
     transform: translateY(-8px) scale(1.02);
-
     box-shadow: 0 20px 40px rgba(56, 189, 248, 0.15);
-
     border-color: #38bdf8;
 }
 
-/* TITLE */
+/* Title */
 .project-title {
     font-weight: 600;
     font-size: 17px;
     color: #f8fafc;
 }
 
-/* DESCRIPTION */
+/* Description */
 .project-desc {
     font-size: 13px;
     color: #94a3b8;
     line-height: 1.5;
 }
 
-/* BUTTONS */
+/* Buttons */
 .project-card .btn {
     margin-right: 8px;
     font-size: 12px;
 }
 
-/* FIX overlay issue (IMPORTANT) */
+/* FIX overlay issue */
 .project-section::after {
     pointer-events: none;
 }
@@ -470,21 +450,21 @@ html {
     background: #0f172a;
 }
 
-/* TITLE */
+/* Title */
 .section-title {
     margin-bottom: 60px;
     color: #e2e8f0;
     font-weight: 600;
 }
 
-/* TIMELINE WRAPPER */
+/* Timeline Wrapper */
 .timeline {
     position: relative;
     max-width: 900px;
     margin: auto;
 }
 
-/* CENTER LINE */
+/* Center Line */
 .timeline::after {
     content: '';
     position: absolute;
@@ -496,36 +476,30 @@ html {
     transform: translateX(-50%);
 }
 
-/* CARD (IMPORTANT FIX HERE 🔥) */
+/* Card */
 .timeline-item {
     position: relative;
     width: 42%;
     padding: 18px 20px;
     margin: 28px 0;
-
-    /* 🔥 REMOVE HEAVY BLUR */
     background: #1e293b;
-    /* solid color instead of transparent */
-
     border-radius: 12px;
     border: 1px solid rgba(56, 189, 248, 0.18);
-
     transition: all 0.25s ease;
     background: #1e293b; 
-
     opacity: 0;
     transform: translateY(40px);
     will-change: transform, opacity;
 }
 
-/* HOVER */
+/* Hover */
 .timeline-item:hover {
     transform: translateY(-5px);
     border-color: #38bdf8;
     box-shadow: 0 10px 25px rgba(56, 189, 248, 0.12);
 }
 
-/* LEFT / RIGHT */
+/* Left/Right */
 .timeline-item.left {
     left: 0;
 }
@@ -534,7 +508,7 @@ html {
     left: 58%;
 }
 
-/* DOT */
+/* Dot */
 .timeline-item::after {
     content: '';
     position: absolute;
@@ -553,11 +527,9 @@ html {
     left: -6px;
 }
 
-/* TEXT (IMPORTANT FIX 🔥) */
 .timeline-item h5 {
     font-size: 15px;
     color: #f8fafc;
-    /* bright white */
     margin-bottom: 6px;
 }
 
@@ -570,11 +542,10 @@ html {
 .timeline-item p:last-of-type {
     font-size: 13px;
     color: #cbd5e1;
-    /* clearer text */
     line-height: 1.6;
 }
 
-/* RESPONSIVE */
+/* Responsive */
 @media (max-width: 768px) {
     .timeline::after {
         left: 10px;
@@ -598,9 +569,8 @@ html {
 
 .services-section {
     padding: 90px 0;
-    background: #020617;
-
-    overflow: visible; /* 🔥 fix hover cut issue */
+    background: #0d1525;
+    overflow: visible; 
 }
 
 .services-section h2 {
@@ -608,76 +578,65 @@ html {
     margin-bottom: 40px;
 }
 
-/* OUTER WRAPPER */
+/* Outer Wrapper */
 .services-wrapper {
     overflow: hidden;
     width: 100%;
-
-    padding: 25px 0; /* 🔥 breathing space */
+    padding: 25px 0; 
 }
 
-/* MOVING TRACK */
+/* Moving Track */
 .services-track {
     display: flex;
     gap: 14px;
-
     width: max-content;
-
     animation: scrollLeft 28s linear infinite;
-
-    padding: 10px 0; /* 🔥 prevent top clipping */
+    padding: 10px 0; 
 }
 
-/* pause on hover */
+/* Pause on Hover */
 .services-track:hover {
     animation-play-state: paused;
 }
 
-/* CARD */
+/* Card */
 .service-card {
     min-width: 190px;
     max-width: 190px;
-
     flex-shrink: 0;
-
     background: rgba(30, 41, 59, 0.65);
     border: 1px solid rgba(56, 189, 248, 0.10);
     border-radius: 12px;
-
     padding: 16px 12px;
     text-align: center;
-
     transition: all 0.25s ease;
-
-    transform-origin: center; /* 🔥 important */
+    transform-origin: center;
     position: relative;
 }
 
-/* hover effect */
+/* Hover Effect */
 .service-card:hover {
     transform: translateY(-8px) scale(1.05);
-
     border-color: #38bdf8;
     box-shadow: 0 20px 40px rgba(56, 189, 248, 0.18);
-
-    z-index: 10; /* 🔥 prevents overlap cut */
+    z-index: 10;
 }
 
-/* ICON */
+/* Icon */
 .service-icon {
     font-size: 20px;
     color: #38bdf8;
     margin-bottom: 8px;
 }
 
-/* TITLE */
+/* Title */
 .service-title {
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 6px;
 }
 
-/* DESCRIPTION */
+/* Description */
 .service-card p {
     font-size: 12px;
     color: #94a3b8;
@@ -689,7 +648,7 @@ html {
     overflow: hidden;
 }
 
-/* ANIMATION */
+/* Animation */
 @keyframes scrollLeft {
     0% {
         transform: translateX(0);
@@ -720,21 +679,11 @@ html {
     animation: gradient 8s ease infinite;
 }
 
-/* subtle glow background */
+/* Subtle Glow Background */
 
-.contact-section::before {
-    content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, #38bdf830, transparent);
-    top: -100px;
-    left: -100px;
-    filter: blur(80px);
 
-}
 
-/* cards */
+/* Cards */
 
 .contact-info,
 .contact-form {
@@ -749,7 +698,7 @@ html {
 
 }
 
-/* card hover glow */
+/* Card Hover Glow */
 
 .contact-info:hover,
 .contact-form:hover {
@@ -762,14 +711,14 @@ html {
 
 }
 
-/* headings */
+/* Headings */
 
 .contact-section h2 {
     font-weight: 700;
     letter-spacing: 1px;
 }
 
-/* input */
+/* Input */
 
 .contact-input {
     background: #0f172a;
@@ -781,15 +730,13 @@ html {
 
 }
 
-/* placeholder */
+/* Placeholder */
 
 .contact-input::placeholder {
-
     color: #94a3b8;
-
 }
 
-/* focus effect */
+/* Focus Effect */
 
 .contact-input:focus {
     border-color: #38bdf8;
@@ -804,7 +751,7 @@ textarea.contact-input {
     resize: none;
 }
 
-/* button */
+/* Button */
 
 .contact-btn {
 
@@ -818,7 +765,7 @@ textarea.contact-input {
 
 }
 
-/* button hover */
+/* Button Hover */
 
 .contact-btn:hover {
     transform: translateY(-3px) scale(1.03);
@@ -826,7 +773,7 @@ textarea.contact-input {
 
 }
 
-/* social icons */
+/* Social Icons */
 
 .social-icons a {
 
@@ -836,7 +783,7 @@ textarea.contact-input {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    border: 1px solid #38bdf8;
+    border: 1px solid #14323f;
     color: #38bdf8;
     margin-right: 10px;
     font-size: 18px;
@@ -844,14 +791,14 @@ textarea.contact-input {
 
 }
 
-/* hover */
+/* Hover */
 
 .social-icons a:hover {
 
     background: #38bdf8;
     color: white;
     transform: translateY(-4px) scale(1.1);
-    box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+    
 
 }
 
@@ -864,19 +811,14 @@ textarea.contact-input {
 /* ----FOOTER---- */
 .portfolio-footer {
     position: relative;
-
     padding: 60px 0 30px;
-
     background: linear-gradient(180deg, #020617, #0a0f1f);
-
     color: #94a3b8;
-
     border-top: 1px solid rgba(56, 189, 248, 0.15);
-
     overflow: hidden;
 }
 
-/* glowing background effect */
+/* Glowing Background Effect */
 .portfolio-footer::before {
     content: "";
     position: absolute;
@@ -891,13 +833,13 @@ textarea.contact-input {
     z-index: 0;
 }
 
-/* container above glow */
+/* Container Above Glow */
 .portfolio-footer .container {
     position: relative;
     z-index: 2;
 }
 
-/* MAIN TEXT */
+/* Main Text */
 .footer-text {
     font-size: 15px;
     color: #cbd5e1;
@@ -905,13 +847,13 @@ textarea.contact-input {
     letter-spacing: 0.3px;
 }
 
-/* NAME */
+/* Name */
 .footer-name {
     color: #38bdf8;
     font-weight: 600;
 }
 
-/* SUBTEXT */
+/* Subtext */
 .footer-subtext {
     font-size: 13px;
     color: #64748b;
@@ -942,3 +884,6 @@ textarea.contact-input {
     );
 }
 /* ----End Footer---- */
+
+
+

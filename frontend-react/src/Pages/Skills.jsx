@@ -21,7 +21,7 @@ const Skills = () => {
       }, 300);
     });
 
-  }, [active]); // 🔥 important
+  }, [active]);
 
   const skills = [
   // FRONTEND
@@ -32,7 +32,7 @@ const Skills = () => {
   { name: "React", percent: 80, icon: "fab fa-react", color: "#38bdf8", type: "frontend" },
   { name: "VueJS", percent: 75, icon: "fab fa-vuejs", color: "#22c55e", type: "frontend" },
 
-  // BACKEND (🔥 UPDATED)
+  // BACKEND
   { name: "PHP", percent: 85, icon: "fab fa-php", color: "#a855f7", type: "backend" },
   { name: "Laravel", percent: 85, icon: "fas fa-server", color: "#ef4444", type: "backend" },
   { name: "REST API", percent: 80, icon: "fas fa-plug", color: "#38bdf8", type: "backend" },
@@ -56,15 +56,15 @@ const Skills = () => {
 
         <h2 className="text-center mb-4">My Skills</h2>
 
-        {/* 🔥 TABS */}
-        <div className="tabs">
+        {/* TABS */}
+        <div className="tabs" data-aos="fade-left">
           <button onClick={() => setActive("frontend")} className={active === "frontend" ? "active" : ""}>Frontend</button>
           <button onClick={() => setActive("backend")} className={active === "backend" ? "active" : ""}>Backend</button>
           <button onClick={() => setActive("tools")} className={active === "tools" ? "active" : ""}>Tools</button>
         </div>
 
         {/* GRID */}
-        <div className="skills-grid">
+        <div className="skills-grid" data-aos="fade-right">
 
           {filtered.map((skill, index) => (
             <div className="skill-card" key={index}>

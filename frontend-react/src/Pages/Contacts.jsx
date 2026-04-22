@@ -7,15 +7,15 @@ const Contact = () => {
       <h2 className="text-center mb-2">Contact Me</h2>
 
       <p className="text-secondary text-center mb-4">
-        Feel free to reach out for collaboration, project discussion
-        or just to say hello.
+        <em>Feel free to reach out for collaboration, project discussion
+        or just to say hello.</em>
       </p>
 
       <div className="container">
         <div className="row g-4 justify-content-center align-items-center">
 
           {/* LEFT SIDE INFO */}
-          <div className="col-lg-5">
+          <div className="col-lg-5" data-aos="fade-right">
             <div className="contact-info p-4">
 
               <h2 className="mb-4 text-info text-center">
@@ -68,7 +68,7 @@ const Contact = () => {
           </div>
 
           {/* RIGHT SIDE FORM */}
-          <div className="col-lg-7">
+          <div className="col-lg-7" data-aos="fade-left">
             <div className="contact-form p-4">
 
               <h2 className="mb-4 text-info text-center">
