@@ -60,7 +60,7 @@ const About = () => {
               </h4>
 
               <div className="table-responsive">
-                <table className="table table-dark table-hover align-middle mb-0">
+                <table className="table table-dark  table-hover align-middle mb-0">
 
                   <thead>
                     <tr>

@@ -1,161 +1,90 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Projects = () => {
+  const [projects, setProjects] = useState([]);
+  const colors = [
+    "#38bdf8",
+    "#a78bfa",
+    "#f472b6",
+    "#f59e0b",
+    "#34d399",
+    "#f87171"
+  ];
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/projects`)
+      .then(res => res.json())
+      .then(data => setProjects(data.projects))
+      .catch(err => console.log(err));
+  }, []);
+
   return (
-    <section id="projects" data-cursor="yellow" className="project-section text-center  cursor-glow">
+    <section id="projects" data-cursor="yellow" className="project-section text-center cursor-glow">
       <div className="container">
-        <h2 className="mb-5" data-aos="fade-up">Projects</h2>
+
+        <h2 className="mb-5" data-aos="fade-up">
+          Projects
+        </h2>
 
         <div className="row g-4 justify-content-center">
 
-          {/* Project Card 1*/}
-          <div className="col-md-6 col-lg-4" data-aos="zoom-in">
-            <div className="project-card p-4 h-100">
-              <h5 className="project-title">Personal Portfolio Website</h5>
+          {projects.map((p, index) => (
+            <div
+              key={p.ProjectID}
+              className="col-md-6 col-lg-4"
+              data-aos="zoom-in"
+            >
+              <div className="project-card p-4 h-100">
 
-              <p className="project-desc">
-                A responsive portfolio website built with HTML, CSS, Bootstrap, JavaScript and Laravel.
-              </p>
+                {/* Image */}
+                <img
+                  src={p.ProjectPhoto}
+                  alt={p.ProjectName}
+                  className="img-fluid mb-3 rounded"
+                />
 
-              <div className="mt-3">
-                <a href="http://nuruzzaman.intelsofts.com/" target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">
-                  <i className="fas fa-globe"></i> Live
-                </a>
+                {/* Title */}
+                <h5
+                  className="project-title"
+                  style={{ color: colors[index % colors.length] }}
+                >
+                  {p.ProjectName}
+                </h5>
 
-                <a href="https://github.com/mnnadeembd/portfolio" target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-light">
-                  <i className="fab fa-github"></i> Code
-                </a>
+                {/* Description */}
+                <p className="project-desc">
+                  {p.ProjectDescription}
+                </p>
+
+                {/* Buttons */}
+                <div className="mt-3 d-flex justify-content-center gap-2">
+
+                  <a
+                    href={p.ProjectLive}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-sm btn-primary"
+                  >
+                    <i className="fas fa-globe"></i> Live
+                  </a>
+
+                  <a
+                    href={p.ProjectCode}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-sm btn-outline-light"
+                  >
+                    <i className="fab fa-github"></i> Code
+                  </a>
+
+                </div>
+
               </div>
             </div>
-          </div>
-
-          {/* Project 2 */}
-          <div className="col-md-6 col-lg-4" data-aos="zoom-in">
-            <div className="project-card p-4 h-100">
-              <h5 className="project-title">Reuters News Website Clone</h5>
-
-              <p className="project-desc">
-                Demonstrates strong skills in layout design and responsive styling without JavaScript frameworks.
-              </p>
-
-              <div className="mt-3">
-                <a href="http://nuruzzaman.intelsofts.com/html/" target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">
-                  <i className="fas fa-globe"></i> Live
-                </a>
-
-                <a href="#" className="btn btn-sm btn-outline-light">
-                  <i className="fab fa-github"></i> Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Project 3 */}
-          <div className="col-md-6 col-lg-4" data-aos="zoom-in">
-            <div className="project-card p-4 h-100">
-              <h5 className="project-title">Agro Shop Management System</h5>
-
-              <p className="project-desc">
-                Full-stack PHP application demonstrating database management and business logic.
-              </p>
-
-              <div className="mt-3">
-                <a href="http://nuruzzaman.intelsofts.com/php/" target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">
-                  <i className="fas fa-globe"></i> Live
-                </a>
-
-                <a href="#" className="btn btn-sm btn-outline-light">
-                  <i className="fab fa-github"></i> Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Project 4 */}
-          <div className="col-md-6 col-lg-4" data-aos="zoom-in">
-            <div className="project-card p-4 h-100">
-              <h5 className="project-title">React + API System</h5>
-
-              <p className="project-desc">
-                React frontend integrated with PHP REST API for dynamic application.
-              </p>
-
-              <div className="mt-3">
-                <a href="http://nuruzzaman.intelsofts.com/react" target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">
-                  <i className="fas fa-globe"></i> Live
-                </a>
-
-                <a href="#" className="btn btn-sm btn-outline-light">
-                  <i className="fab fa-github"></i> Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Project 5 */}
-          <div className="col-md-6 col-lg-4" data-aos="zoom-in">
-            <div className="project-card p-4 h-100">
-              <h5 className="project-title">HR Management System</h5>
-
-              <p className="project-desc">
-                HR system with attendance, leave and payroll features.
-              </p>
-
-              <div className="mt-3">
-                <a href="http://nuruzzaman.intelsofts.com/hr" target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">
-                  <i className="fas fa-globe"></i> Live
-                </a>
-
-                <a href="https://github.com/mnnadeembd/HR_Management" className="btn btn-sm btn-outline-light">
-                  <i className="fab fa-github"></i> Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Project 6 */}
-          <div className="col-md-6 col-lg-4" data-aos="zoom-in">
-            <div className="project-card p-4 h-100">
-              <h5 className="project-title">Vue.js Application</h5>
-
-              <p className="project-desc">
-                SPA built using Vue.js with fast and dynamic UI experience.
-              </p>
-
-              <div className="mt-3">
-                <a href="http://nuruzzaman.intelsofts.com/vue" target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">
-                  <i className="fas fa-globe"></i> Live
-                </a>
-
-                <a href="https://github.com/mnnadeembd/VueERP/tree/main/vue" className="btn btn-sm btn-outline-light">
-                  <i className="fab fa-github"></i> Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Project 7 */}
-          <div className="col-md-6 col-lg-4" data-aos="zoom-in">
-            <div className="project-card p-4 h-100">
-              <h5 className="project-title">Vue.js Application</h5>
-
-              <p className="project-desc">
-                SPA built using Vue.js with fast and dynamic UI experience.
-              </p>
-
-              <div className="mt-3">
-                <a href="http://nuruzzaman.intelsofts.com/vue" target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">
-                  <i className="fas fa-globe"></i> Live
-                </a>
-
-                <a href="https://github.com/mnnadeembd/VueERP/tree/main/vue" className="btn btn-sm btn-outline-light">
-                  <i className="fab fa-github"></i> Code
-                </a>
-              </div>
-            </div>
-          </div>
+          ))}
 
         </div>
+
       </div>
     </section>
   );

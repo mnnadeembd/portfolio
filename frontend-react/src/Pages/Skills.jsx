@@ -57,14 +57,14 @@ const Skills = () => {
         <h2 className="text-center mb-4">My Skills</h2>
 
         {/* TABS */}
-        <div className="tabs" data-aos="fade-left">
-          <button onClick={() => setActive("frontend")} className={active === "frontend" ? "active" : ""}>Frontend</button>
-          <button onClick={() => setActive("backend")} className={active === "backend" ? "active" : ""}>Backend</button>
+        <div className="tabs" >
+          <button  onClick={() => setActive("frontend")} className={active === "frontend" ? "active" : ""}>Frontend</button>
           <button onClick={() => setActive("tools")} className={active === "tools" ? "active" : ""}>Tools</button>
+          <button  onClick={() => setActive("backend")} className={active === "backend" ? "active" : ""}>Backend</button>
         </div>
 
         {/* GRID */}
-        <div className="skills-grid" data-aos="fade-right">
+        <div className="skills-grid" >
 
           {filtered.map((skill, index) => (
             <div className="skill-card" key={index}>
