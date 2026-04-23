@@ -1,41 +1,67 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 
 const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("home");
+
+  // scroll shrink + active section detect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+
+      const sections = ["home", "about", "skills", "projects", "timeline", "services", "contact"];
+
+      let current = "home";
+
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 120) {
+            current = id;
+          }
+        }
+      });
+
+      setActive(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav className={`navbar navbar-expand-lg navbar-dark fixed-top ${scrolled ? "scrolled" : ""}`}>
       <div className="container">
-        <a href="http://nuruzzaman.intelsofts.com/" className="navbar-brand fw-bold">
+
+        {/* BRAND */}
+        <a href="#home" className="navbar-brand">
           @mnnadeem
         </a>
 
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        {/* TOGGLER */}
+        <button className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
           <span className="navbar-toggler-icon"></span>
         </button>
 
-
+        {/* MENU */}
         <div className="collapse navbar-collapse" id="nav">
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <a className="nav-link" href="#about">About</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#skills">Skills</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#projects">Projects</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#timeline">Experience</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#services">Services</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#contact">Contact</a>
-            </li>
+          <ul className="navbar-nav ms-auto nav-links">
+
+            {["about", "skills", "projects", "timeline", "services", "contact"].map((item) => (
+              <li key={item}>
+                <a
+                  className={`nav-link ${active === item ? "active" : ""}`}
+                  href={`#${item}`}
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </a>
+              </li>
+            ))}
+
           </ul>
         </div>
+
       </div>
     </nav>
   );

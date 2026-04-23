@@ -11,11 +11,13 @@ import Projects from "../Pages/Projects";
 import Services from "../Pages/Services";
 import Contacts from "../Pages/Contacts";
 import CursorGlow from "../Component/CursorGlow";
+import ScrollTopButton from "../Component/ScrollTopButton";
 
 const Home = () => {
   return (
     <div>
       <CursorGlow />
+      <ScrollTopButton />
 
       <Header />
       <Hero />

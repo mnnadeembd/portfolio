@@ -16,7 +16,7 @@ const About = () => {
     <section id="about" data-cursor="green" className="about-section py-5">
       <div className="container">
 
-        <h2 className="text-center mb-5 text-info">
+        <h2 className="text-center mb-5">
           About Me
         </h2>
 
@@ -32,6 +32,8 @@ const About = () => {
                 alt="Nadeem"
               />
 
+              
+
               <p className="text-secondary">
                 <em>
                   "I’m an aspiring full-stack developer driven by curiosity and clean solutions. I love turning complex ideas into responsive, user-friendly products and I’m always leveling up my craft with modern frameworks and best practices."
@@ -40,7 +42,6 @@ const About = () => {
 
               <a 
                 href="https://drive.google.com/file/d/13N6sKO0ohL0TOPEeTzRHGV9HlR5bwPfH/view?usp=sharing"
-                className=" buttons"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -112,8 +113,25 @@ const About = () => {
           </div>
 
         </div>
+         <div className="link-button mt-4">
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-outline me-2"
+          >
+            <i className="fab fa-linkedin"></i> LinkedIn
+          </a>
+
+          <a href="#projects" className="btn btn-outline">
+            View Work
+          </a>
+        </div>
       </div>
+
+      
     </section>
+    
   );
 };
 

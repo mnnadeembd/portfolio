@@ -1,0 +1,76 @@
+/* scroll top button */
+.scroll-top-btn {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+
+    cursor: pointer;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.4s ease;
+
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+}
+
+.scroll-top-btn.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+    box-shadow: 0 0 18px rgba(56, 189, 248, 0.4);
+    transform: scale(1.1);
+}
+
+/* 🔥 Arrow */
+.scroll-top-btn::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+
+    border-top: 2px solid #38bdf8;
+    border-left: 2px solid #38bdf8;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+
+    /* glow */
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+
+    /* animation */
+    animation: arrowFloat 1.5s ease-in-out infinite;
+}
+
+/* ✨ Floating animation */
+@keyframes arrowFloat {
+    0% {
+        transform: translate(-50%, -50%) rotate(45deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-50%, -65%) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(45deg);
+        opacity: 0.8;
+    }
+}
+
+/* hover e aro glow */
+.scroll-top-btn:hover::before {
+    box-shadow: 0 0 12px rgba(56, 189, 248, 1);
+}

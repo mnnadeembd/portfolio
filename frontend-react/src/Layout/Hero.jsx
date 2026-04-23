@@ -7,36 +7,51 @@ const Hero = () => {
 
   const [init, setInit] = useState(false);
 
-  // ✅ Typing state
-  const text = "I build fast, scalable web applications with Laravel, PHP, React, and Vue.js";
+  const text =
+    "I design and develop fast, scalable, and user-focused web applications with modern technologies.";
+
   const [typedText, setTypedText] = useState("");
   const [index, setIndex] = useState(0);
 
-  // ✅ Typing effect (React way)
+  const [hideScrollDown, setHideScrollDown] = useState(false);
+
+  // typing effect
   useEffect(() => {
     if (index < text.length) {
       const timeout = setTimeout(() => {
         setTypedText((prev) => prev + text.charAt(index));
         setIndex(index + 1);
-      }, 60);
+      }, 20);
 
       return () => clearTimeout(timeout);
     }
-  }, [index, text]);
+  }, [index]);
 
   // particles init
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadFull(engine);
-    }).then(() => {
-      setInit(true);
-    });
+    }).then(() => setInit(true));
+  }, []);
+
+  // scroll logic (ONLY for scroll-down)
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const heroHeight = window.innerHeight;
+
+      // hide scroll-down after 50%
+      setHideScrollDown(scrollY > heroHeight * 0.5);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <section id="home" data-cursor="blue" className="hero-section">
+    <section id="home" className="hero-section">
 
-      {/* Particles */}
+      {/* particles */}
       {init && (
         <Particles
           className="particles-bg"
@@ -45,32 +60,23 @@ const Hero = () => {
             background: { color: "transparent" },
             fpsLimit: 60,
             particles: {
-              number: {
-                value: 120,
-                density: { enable: true, area: 800 }
-              },
+              number: { value: 80 },
               color: { value: "#38bdf8" },
               links: {
                 enable: true,
                 color: "#38bdf8",
                 distance: 120,
-                opacity: 0.3
+                opacity: 0.3,
               },
-              move: {
-                enable: true,
-                speed: 0.8
-              },
-              size: {
-                value: { min: 1, max: 1 }
-              }
-            }
+              move: { enable: true, speed: 0.3 },
+              size: { value: 1 },
+            },
           }}
         />
       )}
 
       {/* HERO CONTENT */}
       <div className="container hero-content">
-
         <h4 className="accent mb-3">
           FULL-STACK WEB APPLICATION DEVELOPER
         </h4>
@@ -79,30 +85,25 @@ const Hero = () => {
           Md. Nuruzzaman <span className="accent">Nadeem</span>
         </h1>
 
-        {/* ✅ Typing Text */}
         <p className="typing-text">
           {typedText}
           <span className="cursor">|</span>
         </p>
+      </div>
 
-      
-
-        <div className="buttons mt-4">
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-outline me-2"
-          >
-            <i className="fab fa-linkedin"></i> LinkedIn
-          </a>
-
-          <a href="#projects" className="btn btn-outline">
-            View Work
-          </a>
+      {/* scroll down only */}
+      <div className={`scroll-down ${hideScrollDown ? "hide" : ""}`}>
+        <div className="scroll-box">
+          <div className="wheel"></div>
         </div>
 
+        <div className="arrows">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
+
     </section>
   );
 };
