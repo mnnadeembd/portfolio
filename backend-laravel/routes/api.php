@@ -12,3 +12,4 @@ Route::get('/user', function (Request $request) {
 Route::get('/projects', [ProjectController::class, 'index']);
 
 Route::post('/contact', [ContactController::class, 'send']);
+Route::get('/projects/{id}', [ProjectController::class, 'show']);
