@@ -57,7 +57,7 @@ const About = () => {
             <div className="about-card p-4 shadow-lg">
 
               <h4 className="mb-4 text-info border-bottom pb-2">
-                Education
+                Academic Background
               </h4>
 
               <div className="table-responsive">

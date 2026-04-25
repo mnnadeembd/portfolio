@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
-const ProjectList = ({ onView }) => {
+const ProjectList = ({ onView = () => { }, onEdit = () => { }, onCreate = () => { } }) => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+
+
+  //  modal state
+  const [showModal, setShowModal] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
+
+
 
   const API_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -26,10 +34,61 @@ const ProjectList = ({ onView }) => {
     fetchProjects();
   }, [API_URL]);
 
+
+
+  // OPEN MODAL
+  const handleDeleteClick = (id) => {
+    setDeleteId(id);
+    setShowModal(true);
+  };
+
+
+
+  // CONFIRM DELETE
+  const confirmDelete = async () => {
+    try {
+      const res = await fetch(`${API_URL}/projects/${deleteId}`, {
+        method: "DELETE",
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        toast.success(data.message || "Project deleted successfully");
+
+        setProjects((prev) =>
+          prev.filter((p) => p.ProjectID !== deleteId)
+        );
+      } else {
+        toast.error(data.message || "Delete failed");
+      }
+
+      setShowModal(false);
+      setDeleteId(null);
+
+    } catch (err) {
+      console.log(err);
+      toast.error("Delete failed");
+      setShowModal(false);
+    }
+  };
+
+
+
   return (
     <div className="project-wrapper">
 
-      <h2 className="title">📁 Projects List</h2>
+      <div className="header-row">
+        <h2 className="title">📁 Projects List</h2>
+
+        <button
+          className="btn-add"
+          onClick={onCreate}   // 🔥 MAIN MAGIC
+        >
+          + Add Project
+        </button>
+      </div>
+
 
       {/* EMPTY */}
       {!loading && projects.length === 0 && (
@@ -69,14 +128,19 @@ const ProjectList = ({ onView }) => {
                     👁 View
                   </button>
 
-                  <button className="action-btn btn-edit">
+                  <button
+                    className="action-btn btn-edit"
+                    onClick={() => onEdit(p.ProjectID)}
+                  >
                     ✏ Edit
                   </button>
 
-                  <button className="action-btn btn-delete">
-                    🗑 Delete
+                  <button
+                    className="action-btn btn-delete"
+                    onClick={() => handleDeleteClick(p.ProjectID)}
+                  >
+                    🗑 Remove
                   </button>
-
                 </td>
 
               </tr>
@@ -84,6 +148,28 @@ const ProjectList = ({ onView }) => {
           </tbody>
 
         </table>
+      )}
+
+      {/* 🔥 CONFIRM MODAL */}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-box">
+
+            <h3>⚠️ Confirm Delete</h3>
+            <p>Are you sure you want to delete this project?</p>
+
+            <div className="modal-actions">
+              <button className="btn-cancel" onClick={() => setShowModal(false)}>
+                Cancel
+              </button>
+
+              <button className="btn-delete" onClick={confirmDelete}>
+                Yes, Delete
+              </button>
+            </div>
+
+          </div>
+        </div>
       )}
 
     </div>

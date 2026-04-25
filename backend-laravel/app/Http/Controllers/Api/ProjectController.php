@@ -35,7 +35,22 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        if ($request->hasFile('ProjectPhoto')) {
+            $file = $request->file('ProjectPhoto');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('storage/projects'), $filename);
+
+            $data['ProjectPhoto'] = $filename;
+        }
+
+        $project = Project::create($data);
+
+        return response()->json([
+            'message' => 'Project created successfully',
+            'project' => $project
+        ]);
     }
 
     /**
@@ -62,19 +77,55 @@ class ProjectController extends Controller
         //
     }
 
+
+
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+
+
+    public function update(Request $request, $id)
     {
-        //
+        $project = Project::find($id);
+
+        if (!$project) {
+            return response()->json(['message' => 'Not found'], 404);
+        }
+
+        $data = $request->except(['ProjectPhoto']);
+
+        // upload photo
+        if ($request->hasFile('ProjectPhoto')) {
+            $file = $request->file('ProjectPhoto');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('storage/projects'), $filename);
+
+            $data['ProjectPhoto'] = $filename;
+        }
+
+        $project->update($data);
+
+        return response()->json([
+            'message' => 'Project updated successfully',
+            'project' => $project
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $project = Project::find($id);
+
+        if (!$project) {
+            return response()->json(['message' => 'Not found'], 404);
+        }
+
+        $project->delete();
+
+        return response()->json([
+            'message' => 'Deleted successfully'
+        ]);
     }
 }

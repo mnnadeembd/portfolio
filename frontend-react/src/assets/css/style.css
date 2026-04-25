@@ -428,7 +428,7 @@ html {
     --glow-strong: rgba(56, 189, 248, 0.22);
 }
 
-/* TABLE WRAPPER */
+
 .table-dark {
     background: var(--table-base) !important;
     backdrop-filter: blur(14px);
@@ -459,7 +459,7 @@ html {
     border-color: var(--table-border);
 
     padding: 12px;
-    font-size: 14px;
+    font-size: 12.7px;
     line-height: 1.4;
 }
 
@@ -506,6 +506,10 @@ html {
     overflow: hidden;
 }
 
+.table-dark td:last-child,
+.table-dark th:last-child {
+    padding-right: 30px; 
+}
 
 /* Buttons Section */
 .link-button {
