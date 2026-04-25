@@ -34,7 +34,7 @@ const Projects = () => {
               className="col-md-6 col-lg-4"
               data-aos="zoom-in"
             >
-              <div className="project-card p-4 h-100">
+              <div className="project-card p-4">
 
                 {/* Image */}
                 <img
@@ -43,39 +43,39 @@ const Projects = () => {
                   className="img-fluid mb-3 rounded"
                 />
 
-                {/* Title */}
-                <h5
-                  className="project-title"
-                  style={{ color: colors[index % colors.length] }}
-                >
-                  {p.ProjectName}
-                </h5>
+                {/* Content wrapper (IMPORTANT FIX) */}
+                <div className="project-body">
 
-                {/* Description */}
-                <p className="project-desc">
-                  {p.ProjectDescription}
-                </p>
-
-                {/* Buttons */}
-                <div className="mt-3 d-flex justify-content-center gap-2">
-
-                  <a
-                    href={p.ProjectLive}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn btn-sm btn-primary"
+                  <h5
+                    className="project-title"
+                    style={{ color: colors[index % colors.length] }}
                   >
-                    <i className="fas fa-globe"></i> Live
-                  </a>
+                    {p.ProjectName}
+                  </h5>
 
-                  <a
-                    href={p.ProjectCode}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn btn-sm btn-outline-light"
-                  >
-                    <i className="fab fa-github"></i> Code
-                  </a>
+                  <p className="project-desc">
+                    {p.ProjectDescription}
+                  </p>
+
+                  <div className="mt-3 d-flex justify-content-center gap-2">
+                    <a
+                      href={p.ProjectLive}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn btn-sm btn-primary"
+                    >
+                      🌐 Live
+                    </a>
+
+                    <a
+                      href={p.ProjectCode}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn btn-sm btn-outline-light"
+                    >
+                      💻 Code
+                    </a>
+                  </div>
 
                 </div>
 
